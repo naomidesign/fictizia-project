@@ -20,7 +20,11 @@
 
 
 				function getApi () {
-					something.innerHTML = ("ME HA FUNCIONADO");
+					var apiResult = awaitApi ("http://api.icndb.com/jokes/random/");
+					var value = apiResult._embedded.quotes[3].value
+					console.log(value)
+
+					something.innerHTML = value;
 				}
 			</script>
 

@@ -19,7 +19,7 @@
 				btnApi.addEventListener("click", getApi);
 
 
-				function showApi () {
+				async function showApi () {
 					var apiResult = await api("http://api.icndb.com/jokes/random/");
 					var value = apiResult.value.joke
 					console.log(value)

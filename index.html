@@ -2,15 +2,6 @@
 
 <head>
 
-<style>
-body{ 
-	background: no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
-</style>
 </head>
 
 
@@ -20,7 +11,7 @@ body{
 
 			<div class="wrapper">
 
-				<div id="random-image">
+				<div>
 					<p id="something">  </p>
 					
 					<button id="btn-api" class="">DESIGN QUOTES</button>
@@ -78,7 +69,8 @@ body{
 				    var num = Math.floor( Math.random() * imgAr.length );
 				    var img = imgAr[ num ];
 				    var imgStr = '<img src="' + path + img + '" alt = "">';
-				    document.write(imgStr); document.close();
+				   //document.write(imgStr); 
+				   	document.body.style.backgroundImage = 'url('+imgStr+')';
 				}
 				
 

@@ -7,12 +7,11 @@
 
 			<div>
 
-				<p id="quote">
+				<div >
 					
-
-				</p>
-				<p id="author"> </p>
-
+				<p id="something">  </p>
+				</div>
+				
 				<button id="btn-api" class="">DESIGN QUOTES</button>
 			</div>
 
@@ -24,16 +23,13 @@
 
 				async function showApi () {
 					var apiResult = await api("https://cors-anywhere.herokuapp.com/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=");
-					
-					var content = apiResult.content;
-					console.log(content);
-					var author = apiResult.title;
+					console.log(apiResult);
+					var quote = apiResult.content;
 					
 
-					var designQuote = document.getElementById("quote");
-					quote.innerHTML = content;
-					var author = document.getElementById("author");
-					quote.innerHTML = title;
+					var something = document.getElementById("something");
+					something.innerHTML = quote;
+					
 				}
 
 				async function api(url) {	

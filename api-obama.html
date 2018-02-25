@@ -1,0 +1,65 @@
+<html>
+
+
+	<body>
+
+		<div id="resultado"></div>
+
+		<button id="cambiar">Cambiar</button>
+
+
+		<script>
+		/* este funciona ------------------------------------------------------
+			// Escribir en el div #resultado
+			var resultado = document.getElementById("resultado");
+			resultado.innerHTML = "Hola";	
+			// Escuchar el evento click del botón
+			var botonCambiar = document.getElementById('cambiar')
+			botonCambiar.addEventListener("click", cambiaDatos);
+			// Cambia el div #resultado
+		
+			async function cambiaDatos() {
+				var apiResult = await api('http://api.icndb.com/jokes/random');
+				var quote = apiResult.value.joke
+				console.log(quote)
+				resultado.innerHTML = quote;
+				
+			}
+			// Llamadas a la api
+			async function api(url) {			  
+			  var firstData = await fetch(url);
+			  // only proceed once promise is resolved
+			  var data = await firstData.json();
+			  // only proceed once second promise is resolved
+			  return data;
+			}
+			---------------------*/
+			// EJEMPLO PIDIENDO A LA API CUANDO ME DA PROBLEMAS CON CROSS ORIGIN
+			// Escribir en el div #resultado
+			var resultado = document.getElementById("resultado");
+			resultado.innerHTML = "Hola";	
+			// Escuchar el evento click del botón
+			var botonCambiar = document.getElementById('cambiar')
+			botonCambiar.addEventListener("click", cambiaDatos);
+			
+			// Cambia el div #resultado
+			async function cambiaDatos() {
+				var apiResult = await api('https://cors-anywhere.herokuapp.com/https://api.tronalddump.io/search/quote?query=obama');
+				var quote = apiResult._embedded.quotes[3].value;
+				console.log(quote)
+				resultado.innerHTML = quote;
+			}
+			// Llamadas a la api
+			async function api(url) {	
+				//cuando da error de origin > hacer objeto mode:cors. 		  
+			  var firstData = await fetch(url, {mode:"cors"}); 
+			  // only proceed once promise is resolved
+			  var data = await firstData.json();
+			  // only proceed once second promise is resolved
+			  return data;
+			}
+		</script>
+
+	</body>
+
+</html>

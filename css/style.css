@@ -1,7 +1,18 @@
 /* css */
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Pacifico');
+
+
 
 body {
 	text-align: center;
+}
+
+.font1 {
+	font-family: 'Pacifico', cursive;
+}
+
+.font2 {
+	font-family: 'Montserrat', sans-serif;
 }
 

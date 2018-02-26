@@ -3,28 +3,18 @@
 <head>
 
 </head>
-
-
 	<body>
-
-
-
-			<div class="wrapper">
-
+			<div id="wrapper">
 				<div>
-					<p id="something">  </p>
-					
+					<p id="something"></p>
 					<button id="btn-api" class="">DESIGN QUOTES</button>
 				</div>
-				
-				
 			</div>
 
 
 			<script>
 				var btnApi = document.getElementById("btn-api");
-				btnApi.addEventListener("click", showApi);
-
+				btnApi.addEventListener("click", showApi, getRandomImage);
 
 				async function showApi () {
 					var apiResult = await api("https://cors-anywhere.herokuapp.com/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=");
@@ -34,9 +24,7 @@
 
 					var something = document.getElementById("something");
 					something.innerHTML = quote;
-					
 				}
-				
 
 				async function api(url) {	
 					//cuando da error de origin > hacer objeto mode:cors. 		  
@@ -47,20 +35,9 @@
 				  	return data;
 				}
 
-
-
-				
-				/*var images=['img/image0.jpg', 'img/image1.jpg',];
-
-				var randomNumber = Math.floor(Math.random() * images.length);
-				var bgImg = 'url('images[]')';
-
-				document.body.innerHTML = randomNumber;*/
-
 				var arrayImg = new Array();
 					arrayImg[0] = "img/image0.jpg";
 					arrayImg[1] = "img/image1.jpg";
-
 
 				getRandomImage(arrayImg, "");
 
@@ -69,14 +46,10 @@
 				    var num = Math.floor( Math.random() * imgAr.length );
 				    var img = imgAr[ num ];
 				    var imgStr = '<img src="' + path + img + '" alt = "">';
-				   //document.write(imgStr); 
-				   	document.body.style.backgroundImage = 'url('+imgStr+')';
-				}
-				
-
-
-				
+				   	//document.write(imgStr); 
+				   	var wrapper = document.getElementById("wrapper");
+				   	wrapper.style.backgroundImage = 'url('+ path + img +')';
+				}	
 			</script>
 	</body>
-
 </html>
